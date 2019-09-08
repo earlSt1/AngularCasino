@@ -1,0 +1,22 @@
+<p>blackjack works!</p>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-4">
+            <div class="playing_card" [innerHTML]="deck"></div>
+        </div>
+        <div class="col-md-4">
+            <button (click)="currentCard = deck.draw; pressed=true;reset=false">Get card</button> 
+            <button (click)="reset=deck.reset;currentCard = null">Reset</button>
+            <div *ngIf="currentCard && !reset">
+            <p class="playing_card" [innerHTML]="currentCard"></p>
+            </div>
+            <div *ngIf="!currentCard && pressed && !reset">
+                No cards!
+            </div>
+            <div *ngIf="reset && !currentCard">
+                Reshuffled and reset!
+            </div>
+        </div>
+    </div>
+</div>
