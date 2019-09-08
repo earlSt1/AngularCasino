@@ -1,22 +1,63 @@
-<p>blackjack works!</p>
-
-<div class="container">
+<div id="main">
     <div class="row">
-        <div class="col-md-4">
-            <div class="playing_card" [innerHTML]="deck"></div>
+        <div class="col-md-2"></div>
+        <div class="col-md-8">
+            <h2>Blackjack</h2>
+            <p style="text-align: center">{{msg}}</p>
         </div>
+        <div class="col-md-2"></div>
+    </div>
+    <div class="row">
+        <div class="col-md-2"></div>
         <div class="col-md-4">
-            <button (click)="currentCard = deck.draw; pressed=true;reset=false">Get card</button> 
-            <button (click)="reset=deck.reset;currentCard = null">Reset</button>
-            <div *ngIf="currentCard && !reset">
-            <p class="playing_card" [innerHTML]="currentCard"></p>
+            <div class="panel panel-default border">
+                <div class="panel-body" id="player-area">
+                    <p>You have {{score}}<span *ngIf="score != score2"> or {{score2}}</span></p>
+                    <p>Best score: {{bestScore}}</p>
+                    <button (click)="currentCard = hit(); pressed=true;reset=false;" 
+                        [disabled] = "bust 
+                            || disableGame 
+                            || (!currentCard 
+                                && !reset 
+                                && pressed)">Hit</button> 
+                    <button (click)="stand()"
+                        [disabled] = "bust 
+                            || disableGame 
+                            || (!currentCard 
+                                && !reset 
+                                && pressed)">Stand</button>
+                    <button (click)="doReset()">Restart</button>
+                </div>
             </div>
-            <div *ngIf="!currentCard && pressed && !reset">
-                No cards!
-            </div>
-            <div *ngIf="reset && !currentCard">
-                Reshuffled and reset!
+            
+            
+        </div>
+        <div *ngIf="ai" class="col-md-4" >
+            <div class="panel panel-default border" id="player-area">
+                <div class="panel-body">
+                    <p>Dealer has {{ai.best}}</p>
+                    <p *ngIf="nextMove">Dealer has 
+                        <span *ngIf="nextMove && nextMove != 'Bust'">chosen to </span>
+                        <strong>{{nextMove}}</strong>
+                    </p>
+                </div>  
             </div>
         </div>
+        <div class="col-md-2"></div>
+
+    </div>
+    <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-4" id="card-area">
+            <div *ngFor="let card of playerCards">
+                    <span class="playing_card" [innerHTML]="card"></span>
+            </div>
+        </div>
+        <div class="col-md-4" id="card-area">
+            <div *ngFor="let card of aiCards">
+                <span class="playing_card" [innerHTML]="card"></span>
+            </div>
+        </div>
+        <div class="col-md-2"></div>
     </div>
 </div>

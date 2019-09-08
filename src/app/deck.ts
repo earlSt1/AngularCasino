@@ -16,10 +16,9 @@ export class Card{
     suit:string;
     public toString(){
         
-        let toReturn = "";
+        let toReturn = "[";
         let v = "";
         let vPrintable = ""
-        let suit = ""
         switch (this.value){
             case 1:
                 v = "A";
@@ -41,25 +40,25 @@ export class Card{
                 v = this.value+"";
                 vPrintable = v;
         }
-        toReturn += "&nbsp;_________<br/>"
-        if (v.length > 1){
-            toReturn += "|"+v+"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|<br/>"
-        }else{
-            toReturn += "|"+v+"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|<br/>"
-        }
-        toReturn += "|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|<br/>"
-        toReturn += "|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|<br/>"
-        toReturn += "|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|<br/>"
-        toReturn += "|&nbsp;&nbsp;&nbsp;&nbsp;"+this.SUIT_SYMBOLS[this.suit]+"&nbsp;&nbsp;&nbsp;&nbsp;|<br/>"
-        toReturn += "|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|<br/>"
-        toReturn += "|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|<br/>"
-        if (v.length > 1){
-            toReturn += "|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"+v+"|<br/>"
-        }else{
-            toReturn += "|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"+v+"|<br/>"
-        }
-        toReturn += "&nbsp;⎺⎺⎺⎺⎺⎺&nbsp;<br/>"
-        toReturn += vPrintable+" of "+this.suit+"<br/>"
+        // toReturn += "&nbsp;_________<br/>"
+        // if (v.length > 1){
+        //     toReturn += "|"+v+"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|<br/>"
+        // }else{
+        //     toReturn += "|"+v+"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|<br/>"
+        // }
+        // toReturn += "|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|<br/>"
+        // toReturn += "|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|<br/>"
+        // toReturn += "|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|<br/>"
+        // toReturn += "|&nbsp;&nbsp;&nbsp;&nbsp;"+this.SUIT_SYMBOLS[this.suit]+"&nbsp;&nbsp;&nbsp;&nbsp;|<br/>"
+        // toReturn += "|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|<br/>"
+        // toReturn += "|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|<br/>"
+        // if (v.length > 1){
+        //     toReturn += "|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"+v+"|<br/>"
+        // }else{
+        //     toReturn += "|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"+v+"|<br/>"
+        // }
+        // toReturn += "&nbsp;⎺⎺⎺⎺⎺⎺&nbsp;<br/>"
+        toReturn += vPrintable+" of "+this.suit+"]"
         
         return toReturn;
     }

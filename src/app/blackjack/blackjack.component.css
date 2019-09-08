@@ -1,0 +1,17 @@
+#main{
+    padding-top:20px;
+    padding-left:10px;
+    padding-right:10px;
+
+}
+#player-area{
+    padding: 10px 5px 10px 5px;
+    height:100%
+}
+#card-area{
+    text-align:center;
+    padding-top:10px;
+}
+.playing_card{
+    font-family: monospace;
+}
