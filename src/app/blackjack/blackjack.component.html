@@ -10,23 +10,26 @@
     <div class="row">
         <div class="col-md-2"></div>
         <div class="col-md-4">
-            <div class="panel panel-default border">
-                <div class="panel-body" id="player-area">
-                    <p>You have {{score}}<span *ngIf="score != score2"> or {{score2}}</span></p>
-                    <p>Best score: {{bestScore}}</p>
-                    <button (click)="currentCard = hit(); pressed=true;reset=false;" 
+            <div class="panel panel-default border" id="player-area">
+                <div class="panel-body" >
+                    <p>You have {{score}}<span *ngIf="score2 <= 21 && (score != score2)"> or {{score2}}</span></p>
+                    <p>Hit or Stand?</p>
+                    <button type="button" class="btn btn-sm btn-light"
+                        (click)="currentCard = hit(); pressed=true;reset=false;" 
                         [disabled] = "bust 
                             || disableGame 
                             || (!currentCard 
                                 && !reset 
                                 && pressed)">Hit</button> 
-                    <button (click)="stand()"
+                    <button type="button" class="btn btn-sm btn-light"
+                        (click)="stand()" 
                         [disabled] = "bust 
                             || disableGame 
                             || (!currentCard 
                                 && !reset 
                                 && pressed)">Stand</button>
-                    <button (click)="doReset()">Restart</button>
+                    <button type="button" class="btn btn-sm btn-dark"
+                        (click)="doReset()">Restart</button>
                 </div>
             </div>
             
