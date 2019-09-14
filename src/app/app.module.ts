@@ -5,12 +5,18 @@ import { AppComponent } from './app.component';
 import { RouterModule, Routes } from '@angular/router';
 import { BlackjackComponent } from './blackjack/blackjack.component';
 import { HomeComponent } from './home/home.component';
+import { PokerComponent } from './poker/poker.component';
 
 const appRoutes: Routes = [
   {
     path: 'blackjack',
     component: BlackjackComponent,
     data: { title: 'AngularCasino - Blackjack' }
+  },
+  {
+    path: 'poker',
+    component: PokerComponent,
+    data: { title: 'AngularCasino - Poker' }
   },
   {
     path: 'home',
@@ -33,7 +39,8 @@ const appRoutes: Routes = [
   declarations: [
     AppComponent,
     BlackjackComponent,
-    HomeComponent
+    HomeComponent,
+    PokerComponent
   ],
   imports: [
     RouterModule.forRoot(
