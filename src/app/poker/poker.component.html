@@ -1,0 +1,64 @@
+<div id="main">
+    <div class="row">
+        <div class="col-md-8">
+            <h2>Poker</h2>
+            <p style="text-align: center">{{msg}}</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4">
+            <div class="panel panel-default border" id="player-area">
+                <div class="panel-body" >
+                    <p>You have {{score}}<span *ngIf="score2 <= 21 && (score != score2)"> or {{score2}}</span></p>
+                    <p>Hit or Stand?</p>
+                    <button type="button" class="btn btn-sm btn-light"
+                        (click)="currentCard = hit(); pressed=true;reset=false;" 
+                        [disabled] = "bust 
+                            || disableGame 
+                            || (!currentCard 
+                                && !reset 
+                                && pressed)">Hit</button> 
+                    <button type="button" class="btn btn-sm btn-light"
+                        (click)="stand()" 
+                        [disabled] = "bust 
+                            || disableGame 
+                            || (!currentCard 
+                                && !reset 
+                                && pressed)">Stand</button>
+                    <button type="button" class="btn btn-sm btn-dark"
+                        (click)="doReset()">Restart</button>
+                </div>
+            </div>
+            
+            
+        </div>
+        <div class="col-md-2"></div>
+        <div *ngIf="ai" class="col-md-4" >
+            <div class="panel panel-default border" id="player-area">
+                <div class="panel-body">
+                    <p>Dealer has {{ai.best}}</p>
+                    <p *ngIf="nextMove">Dealer has 
+                        <span *ngIf="nextMove && nextMove != 'Bust'">chosen to </span>
+                        <strong>{{nextMove}}</strong>
+                    </p>
+                </div>  
+            </div>
+        </div>
+
+    </div>
+    <div class="row">
+
+        <div class="col-md-4" id="card-area">
+            <div *ngFor="let card of playerCards">
+                    <span class="playing_card" [innerHTML]="card"></span>
+            </div>
+        </div> 
+        <div class="col-md-2" id="card-area"></div>
+        <div class="col-md-4" id="card-area">
+            <div *ngFor="let card of aiCards">
+                <span class="playing_card" [innerHTML]="card"></span>
+            </div>
+        </div>
+
+    </div>
+</div>

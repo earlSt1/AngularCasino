@@ -11,12 +11,18 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { FormsModule } from '@angular/forms'; 
 import { ReactiveFormsModule } from '@angular/forms';
 import { AuthInterceptor } from './auth.inteceptor';
+import { PokerComponent } from './poker/poker.component';
 
 const appRoutes: Routes = [
   {
     path: 'casino/blackjack',
     component: BlackjackComponent,
     data: { title: 'AngularCasino - Blackjack' }
+  },
+  {
+    path: 'poker',
+    component: PokerComponent,
+    data: { title: 'AngularCasino - Poker' }
   },
   {
     path: 'home',
@@ -46,6 +52,7 @@ const appRoutes: Routes = [
     BlackjackComponent,
     HomeComponent,
     LoginComponent,
+    PokerComponent
   ],
   imports: [
     RouterModule.forRoot(
