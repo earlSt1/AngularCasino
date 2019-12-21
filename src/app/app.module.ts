@@ -8,7 +8,7 @@ import { HomeComponent } from './home/home.component';
 
 const appRoutes: Routes = [
   {
-    path: 'blackjack',
+    path: 'casino/blackjack',
     component: BlackjackComponent,
     data: { title: 'AngularCasino - Blackjack' }
   },
