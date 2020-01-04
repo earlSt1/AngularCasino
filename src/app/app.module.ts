@@ -2,9 +2,14 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
+import { AppService } from './app.service';
 import { RouterModule, Routes } from '@angular/router';
 import { BlackjackComponent } from './blackjack/blackjack.component';
 import { HomeComponent } from './home/home.component';
+import { LoginComponent } from './login/login.component';
+import { HttpClientModule } from '@angular/common/http'; 
+import { FormsModule } from '@angular/forms'; 
+import { ReactiveFormsModule } from '@angular/forms';
 
 const appRoutes: Routes = [
   {
@@ -16,6 +21,11 @@ const appRoutes: Routes = [
     path: 'home',
     component: HomeComponent,
     data: {title: 'AngularCasino - Home'}
+  },
+  {
+    path: 'login',
+    component: LoginComponent,
+    data: {title: 'AngularCasino - Login'}
   },
   { path: '',
     redirectTo: '/home',
@@ -33,16 +43,20 @@ const appRoutes: Routes = [
   declarations: [
     AppComponent,
     BlackjackComponent,
-    HomeComponent
+    HomeComponent,
+    LoginComponent,
   ],
   imports: [
     RouterModule.forRoot(
       appRoutes,
       //{ enableTracing: true } // <-- debugging purposes only
     ),
-    BrowserModule
+    BrowserModule,
+    FormsModule,
+    ReactiveFormsModule,
+    HttpClientModule
   ],
-  providers: [],
-  bootstrap: [AppComponent,BlackjackComponent,HomeComponent]
+  providers: [AppService],
+  bootstrap: [AppComponent] //,BlackjackComponent,HomeComponent,LoginComponent]
 })
 export class AppModule { }
