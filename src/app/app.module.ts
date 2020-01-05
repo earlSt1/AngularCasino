@@ -7,9 +7,10 @@ import { RouterModule, Routes } from '@angular/router';
 import { BlackjackComponent } from './blackjack/blackjack.component';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
-import { HttpClientModule } from '@angular/common/http'; 
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http'; 
 import { FormsModule } from '@angular/forms'; 
 import { ReactiveFormsModule } from '@angular/forms';
+import { AuthInterceptor } from './auth.inteceptor';
 
 const appRoutes: Routes = [
   {
@@ -56,7 +57,14 @@ const appRoutes: Routes = [
     ReactiveFormsModule,
     HttpClientModule
   ],
-  providers: [AppService],
+  providers: [AppService,
+   
+      {
+        provide: HTTP_INTERCEPTORS,
+        useClass: AuthInterceptor,
+        multi: true
+      }
+    ],
   bootstrap: [AppComponent] //,BlackjackComponent,HomeComponent,LoginComponent]
 })
 export class AppModule { }

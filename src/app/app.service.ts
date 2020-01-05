@@ -10,13 +10,13 @@ export class AppService {
   }
 
   authenticate(credentials, callback) {
-
-        const headers = new HttpHeaders(credentials ? {
-            authorization : 'Basic ' + btoa(credentials.username + ':' + credentials.password)
-        } : {});
-
-        this.http.get('user', {headers: headers}).subscribe(response => {
-            if (response['name']) {
+        const headers= new HttpHeaders({
+        'Content-Type':  'application/json',
+        });
+        const data = {"username":credentials.username,"password":credentials.password};
+        this.http.post('http://localhost:8080/authenticate', data , {headers: headers}).subscribe(response => {
+            if (response['token']) {
+                localStorage.setItem("token",response['token']);
                 this.authenticated = true;
             } else {
                 this.authenticated = false;

@@ -12,14 +12,15 @@
         </li>
         <li class="nav-item"><a class="nav-link" routerLink="login">Login</a></li>
         <li class="nav-item"><a class="nav-link" (click)="logout()">Logout</a></li>
+        <li [hidden]="!authenticated()" class="nav-item"><a class="nav-link" (click)="hello()">HelloWorld</a></li>
     </ul>
     </nav>
-    <!--<div [hidden]="!authenticated()">
-      <p>LoggedIn </p>
+    <div [hidden]="!authenticated()">
+      <p>LoggedIn. Greeting: {{testData}} </p>
     </div>
     <div [hidden]="authenticated()">
       <p>Login to see your greeting</p>
-    </div>-->
+    </div>
 
 <div style="padding-top:20px" class="container">
     <router-outlet></router-outlet>

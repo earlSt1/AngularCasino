@@ -11,13 +11,26 @@ import { finalize } from 'rxjs/operators';
 export class AppComponent {
   title = 'My Angular App';
   testData = "Test data";
+  
   constructor(private app: AppService, private http: HttpClient, private router: Router) {
-    this.app.authenticate(undefined, undefined);
+    //this.app.authenticate(undefined, undefined);
+    if (localStorage['token']!=null){
+      this.app.authenticated=true;
+    }
+  }
+  authenticated(){
+    return this.app.authenticated;
   }
   logout() {
     this.http.post('logout', {}).pipe(finalize(() => {
-        this.app.authenticated = false;
-        this.router.navigateByUrl('/login');
+      localStorage.removeItem("token");
+      this.app.authenticated = false;
+      this.router.navigateByUrl('/login');
     })).subscribe();
+  }
+  hello(){
+    this.http.get("http://localhost:8080/hello",{}).subscribe(response => {
+      this.testData = response['response'];
+    });
   }
 }
