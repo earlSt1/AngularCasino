@@ -22,11 +22,11 @@ export class AppComponent {
     return this.app.authenticated;
   }
   logout() {
-    this.http.post('logout', {}).pipe(finalize(() => {
+    //this.http.post('logout', {}).pipe(finalize(() => {
       localStorage.removeItem("token");
       this.app.authenticated = false;
       this.router.navigateByUrl('/login');
-    })).subscribe();
+    //})).subscribe();
   }
   hello(){
     this.http.get("http://localhost:8080/hello",{}).subscribe(response => {

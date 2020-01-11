@@ -11,19 +11,27 @@ export class AppService {
 
   authenticate(credentials, callback) {
         const headers= new HttpHeaders({
-        'Content-Type':  'application/json',
+            'Content-Type':  'application/json',
         });
         const data = {"username":credentials.username,"password":credentials.password};
-        this.http.post('http://localhost:8080/authenticate', data , {headers: headers}).subscribe(response => {
-            if (response['token']) {
-                localStorage.setItem("token",response['token']);
-                this.authenticated = true;
-            } else {
-                this.authenticated = false;
+        
+        this.http.post('https://localhost:8080/authenticate', data , {headers: headers}).subscribe(
+            response => {  
+                if (response['token']) {
+                    localStorage.setItem("token",response['token']);
+                    this.authenticated = true;
+                } else {
+                    this.authenticated = false;
+                }
+                return callback && callback();
+            },
+            error => {
+                if (error['status']==401){
+                    this.authenticated=false;
+                    return callback && callback();
+                }
             }
-            return callback && callback();
-        });
-
+        );
     }
 
 }

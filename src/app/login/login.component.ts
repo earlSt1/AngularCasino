@@ -14,11 +14,19 @@ export class LoginComponent {
   }
 
   login() {
-    this.error = false;
-    this.app.authenticate(this.credentials, () => {
-        this.router.navigateByUrl('/');
-    });
-    this.error = true;
+    this.app.authenticate(this.credentials, 
+      () => {
+        if (this.app.authenticated){
+          console.log("auth");
+          this.error=false;
+          this.router.navigateByUrl('/')
+        }else{
+          console.log("No auth");
+          this.error=true;
+        }
+      }
+    );
+    
   }
 
 }

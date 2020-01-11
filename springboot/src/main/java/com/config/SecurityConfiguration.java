@@ -41,7 +41,7 @@ import java.util.Arrays;
       http
         .authorizeRequests()
         .antMatchers("/authenticate").permitAll()  
-        .anyRequest().authenticated()        
+        .anyRequest().authenticated()
       .and()
         .cors()
       .and()
