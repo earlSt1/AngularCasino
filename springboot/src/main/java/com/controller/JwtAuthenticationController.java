@@ -1,8 +1,8 @@
 package com.controller;
 
 import com.config.JwtTokenUtil;
-import com.model.JwtRequest;
-import com.model.JwtResponse;
+import com.model.jwt.JwtRequest;
+import com.model.jwt.JwtResponse;
 import com.service.JwtUserDetailsService;
 
 import org.springframework.beans.factory.annotation.Autowired;
