@@ -16,6 +16,7 @@ export class AppComponent {
     //this.app.authenticate(undefined, undefined);
     if (localStorage['token']!=null){
       this.app.authenticated=true;
+      this.app.username=localStorage.getItem('username');
     }
   }
   authenticated(){
@@ -24,12 +25,13 @@ export class AppComponent {
   logout() {
     //this.http.post('logout', {}).pipe(finalize(() => {
       localStorage.removeItem("token");
+      localStorage.removeItem("username");
       this.app.authenticated = false;
       this.router.navigateByUrl('/login');
     //})).subscribe();
   }
   hello(){
-    this.http.get("http://localhost:8080/hello",{}).subscribe(response => {
+    this.http.get("https://localhost:8080/hello",{}).subscribe(response => {
       this.testData = response['response'];
     });
   }

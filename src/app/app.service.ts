@@ -5,7 +5,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 export class AppService {
 
   authenticated = false;
-
+  username = null;
   constructor(private http: HttpClient) {
   }
 
@@ -19,7 +19,9 @@ export class AppService {
             response => {  
                 if (response['token']) {
                     localStorage.setItem("token",response['token']);
+                    localStorage.setItem("username",response['username']);
                     this.authenticated = true;
+                    this.username = response['username']
                 } else {
                     this.authenticated = false;
                 }
