@@ -65,7 +65,7 @@ const appRoutes: Routes = [
     HttpClientModule
   ],
   providers: [AppService,
-   
+    
       {
         provide: HTTP_INTERCEPTORS,
         useClass: AuthInterceptor,
