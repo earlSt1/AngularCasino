@@ -66,8 +66,8 @@ import java.util.Arrays;
       // user for matching credentials
       // Use BCryptPasswordEncoder
       auth.userDetailsService(jwtUserDetailsService).passwordEncoder(passwordEncoder());
-      System.out.println("Creating user...");
-      jwtUserDetailsService.createUser("javainuse", "password", "test@example.com");
+      //System.out.println("Creating user...");
+      //jwtUserDetailsService.createUser("javainuse", "password", "test@example.com");
     }
 
     @Bean
