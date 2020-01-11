@@ -1,0 +1,11 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - SecurityApplication",
+            "request": "launch",
+            "mainClass": "com.SecurityApplication",
+            "projectName": "springboot"
+        }
+    ]
+}
