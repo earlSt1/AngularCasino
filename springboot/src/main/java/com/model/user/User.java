@@ -5,6 +5,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity // This tells Hibernate to make a table out of this class
 public class User {
     @Id
@@ -14,7 +16,7 @@ public class User {
     private String username;
 
     private String email;
-
+    @JsonIgnore
     private String password;
 
     public Integer getId() {
