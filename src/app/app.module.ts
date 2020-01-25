@@ -11,6 +11,8 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { FormsModule } from '@angular/forms'; 
 import { ReactiveFormsModule } from '@angular/forms';
 import { AuthInterceptor } from './auth.inteceptor';
+import { PostListComponent } from './post-list/post-list.component';
+import { PostViewComponent } from './post-view/post-view.component';
 
 const appRoutes: Routes = [
   {
@@ -27,6 +29,14 @@ const appRoutes: Routes = [
     path: 'login',
     component: LoginComponent,
     data: {title: 'AngularCasino - Login'}
+  },{
+    path: 'post',
+    component: PostListComponent,
+    data: {title: 'AngularCasino - Blog'}
+  },{
+    path: 'post/:id',
+    component: PostViewComponent,
+    data: {title: 'AngularCasino - Blog'}
   },
   { path: '',
     redirectTo: '/home',
@@ -46,6 +56,8 @@ const appRoutes: Routes = [
     BlackjackComponent,
     HomeComponent,
     LoginComponent,
+    PostListComponent,
+    PostViewComponent,
   ],
   imports: [
     RouterModule.forRoot(

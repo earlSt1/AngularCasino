@@ -1,0 +1,14 @@
+<div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-8">
+            <h2>Blog</h2>
+            <div *ngIf="postList">
+                <div *ngFor="let post of postList">
+                    <h4><a href="/post/{{post.id}}">{{post.title}}</a></h4>
+                    <p>Posted on {{post.created | date : "MMM d, y HH:mm"}} by {{post.author.username}}
+                </div>
+            </div>
+            <p></p>
+        </div>
+        <div class="col-md-2"></div>
+    </div>

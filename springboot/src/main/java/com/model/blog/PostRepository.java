@@ -2,9 +2,6 @@ package com.model.blog;
 
 import java.util.List;
 
-import com.model.user.User;
-
-import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 
 

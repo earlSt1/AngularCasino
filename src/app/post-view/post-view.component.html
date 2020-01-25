@@ -1,0 +1,27 @@
+<div class="row">
+    <div class="col-md-2"></div>
+    <div class="col-md-6">
+        <div *ngIf="post">
+            <h2>{{post.title}}</h2>
+            <p>{{post.content}}</p>
+        </div>
+    </div>
+    <div class="col-md-2">test</div>
+    <div class="col-md-2"></div>
+</div>
+<div class="row">
+<div class="col-md-2"></div>
+    <div class="col-md-6">
+    <div *ngIf="comments">
+        <div *ngFor="let comment of comments">
+            <h5>{{comment.author.username}} posted saying:</h5>
+            <p>{{comment.content}}</p>
+        </div>
+    </div>
+    </div>
+
+    <div class="col-md-2"></div>
+    <div class="col-md-2"></div>
+</div>
+
+
