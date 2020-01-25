@@ -1,10 +1,15 @@
 package com.model.blog;
 
+import java.util.Date;
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 
 import com.model.user.User;
 
@@ -17,10 +22,11 @@ public class Post {
     private String title;
 
     private String content;
-
+    
     @ManyToOne
     private User author;
 
+    private Date created;
     private float rating;
 
     public Integer getId() {
@@ -63,5 +69,12 @@ public class Post {
         this.rating = rating;
     }
 
+    public Date getCreated() {
+        return created;
+    }
+
+    public void setCreated(Date created) {
+        this.created = created;
+    }
 
 }

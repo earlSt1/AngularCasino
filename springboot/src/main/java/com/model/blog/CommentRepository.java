@@ -9,5 +9,7 @@ import org.springframework.data.repository.CrudRepository;
 // CRUD refers Create, Read, Update, Delete
 
 public interface CommentRepository extends CrudRepository<Comment, Integer> {
-    List<Comment> findByAuthor(long authorId);
+    List<Comment> findAllCommentByAuthorUsername(String username);
+    List<Comment> findAllByOrderByCreatedDesc();
+    List<Comment> findByParentPostId(Integer parentPostId);
 }

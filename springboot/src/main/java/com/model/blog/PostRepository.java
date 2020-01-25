@@ -12,5 +12,6 @@ import org.springframework.data.repository.CrudRepository;
 // CRUD refers Create, Read, Update, Delete
 
 public interface PostRepository extends CrudRepository<Post, Integer> {  
-    List<Post> findByAuthor(long authorId);
+    List<Post> findByAuthorUsername(String username);
+    List<Post> findAllByOrderByCreatedDesc();
 }

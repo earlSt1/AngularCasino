@@ -1,12 +1,14 @@
 package com.model.blog;
 
+import java.util.Date;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToOne;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.model.user.User;
 
 @Entity // This tells Hibernate to make a table out of this class
@@ -20,9 +22,10 @@ public class Comment {
     @ManyToOne
     private User author;
 
-    @OneToOne
+    @ManyToOne
     private Post parentPost;
 
+    private Date created;
     public Integer getId() {
         return id;
     }
@@ -53,6 +56,14 @@ public class Comment {
 
     public void setParentPost(Post parentPost) {
         this.parentPost = parentPost;
+    }
+
+    public Date getCreated() {
+        return created;
+    }
+
+    public void setCreated(Date created) {
+        this.created = created;
     }
 
 
