@@ -40,7 +40,7 @@ import java.util.Arrays;
     protected void configure(HttpSecurity http) throws Exception {
       http
         .authorizeRequests()
-        .antMatchers("/authenticate").permitAll()  
+        .antMatchers("/authenticate","/post/getAll","/post/*","/post/*/comments").permitAll()  
         .anyRequest().authenticated()
       .and()
         .cors()

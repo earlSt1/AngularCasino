@@ -1,0 +1,10 @@
+.post{
+    width:100%;
+    padding:1.25rem;
+    border-radius:0.25rem;
+    border:1px solid #3f3f3f;
+    margin-bottom:1rem;
+}
+.post-author{
+    font-size:0.72;
+}
